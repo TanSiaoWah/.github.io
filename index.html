@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tan Siao Wah · Portfolio</title>
+  <meta name="description" content="Portfolio of Tan Siao Wah – AI/ML, Few-Shot QA, Generative Models." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0c0f;
+      --card: #12141a;
+      --muted: #a3a9b7;
+      --text: #e7e9ee;
+      --accent: #6aa7ff;
+      --accent-2: #9bffd1;
+      --border: #1b1e26;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --maxw: 1024px;
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(106,167,255,.08), transparent 60%),
+                  radial-gradient(1000px 600px at -10% 10%, rgba(155,255,209,.06), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    /* Layout */
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    header.site {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
+      background: linear-gradient( to bottom, rgba(11,12,15,.9), rgba(11,12,15,.6));
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px; margin-bottom: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: var(--shadow); }
+    .name { font-weight: 700; letter-spacing: .2px; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-weight: 500; }
+    nav a:hover, nav a:focus { color: var(--text); }
+
+    /* Hero */
+    .hero { margin: 32px auto 8px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0));
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow);
+    }
+    .hero h1 { font-size: clamp(28px, 3.2vw, 40px); margin: 8px 0 8px; }
+    .hero p.lead { color: var(--muted); font-size: 1.05rem; margin: 0 0 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag { font-size: .85rem; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: #0e1016; color: var(--muted); }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); text-decoration: none; color: var(--text); font-weight: 600; }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #5c7cff); color: #0b0c0f; border: none; }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    /* Sections */
+    section { margin: 40px 0; }
+    .section-title { font-size: 1.25rem; letter-spacing: .4px; margin-bottom: 16px; color: #dfe3ec; }
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 16px; box-shadow: var(--shadow); }
+    .card h3 { margin: 6px 0 8px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); }
+    .meta { font-size: .9rem; color: var(--muted); }
+    .list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .list li { display: grid; gap: 4px; border: 1px solid var(--border); border-radius: 12px; padding: 12px; background: #0e1117; }
+
+    /* Footer */
+    footer { margin: 48px 0 16px; padding-top: 16px; border-top: 1px dashed var(--border); color: var(--muted); font-size: .95rem; }
+
+    /* Small screen */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid.cols-2 { grid-template-columns: 1fr; }
+      .grid.cols-3 { grid-template-columns: 1fr; }
+      header.site { position: static; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site wrap" aria-label="Site header">
+    <div class="brand">
+      <div class="avatar" aria-hidden="true"></div>
+      <div>
+        <div class="name">Tan Siao Wah</div>
+        <div class="meta">AI / ML · Few-Shot QA · Generative Models</div>
+      </div>
+    </div>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="wrap" id="top">
+    <!-- Hero -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-card">
+        <p class="meta">Hi, I’m</p>
+        <h1>Tan Siao Wah</h1>
+        <p class="lead">Graduate in Master of Science (Information Technology) (By Research) from Multimedia University, Melaka (2023–2025). Research focused on <strong>Few-Shot Question Answering</strong> and <strong>generative models</strong>. Bachelor of Information Technology (Hons.) Artificial Intelligence (2019–2022) with CGPA 3.94 (First Class Honours).</p>
+        <div class="tags" aria-label="Interests">
+          <span class="tag">Few-Shot QA</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Generative Models</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Computer Vision</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Contact Me</a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+          <a class="btn" href="https://github.com/666TSW666" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="section-title">At a glance</div>
+        <ul class="list">
+          <li>
+            <strong>Research</strong>
+            <span class="meta">QARR-BART/T5/LED in few-shot QA; data augmentation & fine-tuning strategies.</span>
+          </li>
+          <li>
+            <strong>Highlights</strong>
+            <span class="meta">IEEE Access & conference publications; First Class Honours (CGPA 3.94).</span>
+          </li>
+          <li>
+            <strong>Interests</strong>
+            <span class="meta">LLM agents, RAG quality, evaluation, efficient finetuning.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="card">
+        <p>I build applied AI systems with a focus on question answering, retrieval-augmented generation, and efficient fine-tuning for low-data regimes. I enjoy turning research into useful products, teaching models to reason, and making evaluations honest and reproducible.</p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Master of Science (Information Technology) – By Research</h3>
+          <div class="meta">Multimedia University, Melaka · 2023–2025</div>
+          <p>Thesis: Few-Shot Question Answering with generative models; evaluations on SQuAD, HotpotQA, and Natural Questions.</p>
+        </div>
+        <div class="card">
+          <h3>Bachelor of Information Technology (Hons.) – Artificial Intelligence</h3>
+          <div class="meta">Multimedia University, Melaka · 2019–2022</div>
+          <p>CGPA: 3.94 (First Class Honours). Coursework across ML, NLP, and CV.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Food Detection & Recognition</h3>
+          <p class="meta">YOLOv5, Faster R-CNN; dataset curation, augmentation, training pipeline; conference paper.</p>
+          <p><a href="#" target="_blank" rel="noopener">View code →</a></p>
+        </article>
+        <article class="card">
+          <h3>Few-Shot QA Framework (QARR-*)</h3>
+          <p class="meta">Compared QARR-BART, QARR-T5, QARR-LED with varying sample sizes; robust averaging over seeds.</p>
+          <p><a href="#" target="_blank" rel="noopener">Read more →</a></p>
+        </article>
+        <article class="card">
+          <h3>RAG Evaluation Toolkit</h3>
+          <p class="meta">Lightweight framework to test retrieval quality, grounding, and answer faithfulness.</p>
+          <p><a href="#" target="_blank" rel="noopener">Docs →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2 class="section-title">Publications</h2>
+      <ul class="list">
+        <li>
+          <strong>Food Detection and Recognition with Deep Learning: A Comparative Study</strong>
+          <span class="meta">Conference · YOLOv5, Faster R-CNN · 2024</span>
+          <span><a href="#" target="_blank" rel="noopener">Paper</a> · <a href="#" target="_blank" rel="noopener">BibTeX</a></span>
+        </li>
+        <li>
+          <strong>Efficient Few-Shot QA via Template Design</strong>
+          <span class="meta">Preprint · QARR-BART/T5/LED · 2025</span>
+          <span><a href="#" target="_blank" rel="noopener">Preprint</a></span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>AI/ML</h3>
+          <p class="meta">PyTorch, Transformers, PEFT/LoRA, RAG, Prompting, Evaluation, CV, NLP</p>
+        </div>
+        <div class="card">
+          <h3>Data</h3>
+          <p class="meta">Experiment design, data annotation, augmentation, reproducibility</p>
+        </div>
+        <div class="card">
+          <h3>Software</h3>
+          <p class="meta">Python, FastAPI, Git/GitHub, Docker, REST, CI/CD basics</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p>Open to AI/ML Engineer roles, AI Agent developer, and applied research opportunities. The fastest way to reach me:</p>
+        <ul class="list">
+          <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/666TSW666" target="_blank" rel="noopener">github.com/666TSW666</a></li>
+          <li><strong>LinkedIn:</strong> <a href="#" target="_blank" rel="noopener">linkedin.com/in/your-handle</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Tan Siao Wah. Built with plain HTML/CSS. Hosted on GitHub Pages.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Small progressive enhancement
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
