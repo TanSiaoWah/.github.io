@@ -3,3 +3,6 @@ Graduate in Master of Science (Information Technology) (By Research) – Multime
 • Research focused on Few-Shot Question Answering and generative models.
 Bachelor of Information Technology (Hons.) Artificial Intelligence – Multimedia University, Melaka (2019–2022)
 • CGPA: 3.94 (First Class Honours)
+
+Published Paper:
+https://ieeexplore.ieee.org/abstract/document/10262523
